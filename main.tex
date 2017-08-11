@@ -145,8 +145,10 @@ seulement devant la commission de discipline de l'établissement mais
 \newpage
 \thispagestyle{empty}
 \section*{Résumé :}
+Coming soon...
 
 \section*{Abstract :}
+Coming soon...
 
 
 %Pour insérer une image facilement :
@@ -186,7 +188,7 @@ L'objectif de mon stage était de rendre l'éditeur riche, par exemple en intég
 
 Dans le contexte de ce stage qui est celui de la recherche, il y a moins la pression d'une deadline, comme on le voit en entreprise. Cependant l'équipe COAST se prépare à faire une démonstration de MUTE lors de la quinzième European Conference on Computer-Supported Cooperative Work (ECSCW) \cite{ecscw} et qui aura lieu du 28 août au 1er septembre 2017 à Sheffield (UK). L'enjeu n'était donc pas des moindres et suggérait un travail de qualité.\\
 
-Ce document constitue le rapport de ce stage. Dans un premier temps, nous poserons le contexte en parlant de l'équipe COAST au sein du LORIA et de ces objectifs. S'en suivra une mise en lumière de l'origine du projet ainsi que les objectifs du stage. Nous détaillerons ensuite l'ensemble des développements mis en place, les résultats obtenus et les difficultés rencontrées. Enfin, nous dresserons un bilan cette expérience technique en laboratoire de recherche et parlerons d'éventuelles améliorations à apporter au projet.\\
+Ce document constitue le rapport de ce stage. Dans un premier temps, nous poserons le contexte en parlant de l'équipe COAST au sein du LORIA et de ces objectifs. S'en suivra une mise en lumière de l'origine du projet ainsi que les objectifs du stage. Nous détaillerons ensuite l'ensemble des développements mis en place, les résultats obtenus et les difficultés rencontrées. Enfin, nous dresserons un bilan de cette expérience technique en laboratoire de recherche et parlerons d'éventuelles améliorations à apporter au projet.\\
 
 \newpage
 \section{L'équipe COAST, INRIA : présentation}
@@ -216,20 +218,21 @@ A l'heure actuelle, au sein des entreprises, l'édition et le partage de fichier
 Pour pallier ce problème, certains proposeraient tout simplement d'utiliser Google Doc, l'éditeur de texte de Google, qui a l'avantage d'apporter une édition collaborative d'un document et en temps-réel. Malheureusement, Google Doc utilise une architecture dite, centralisée : un serveur stocke le document et écoute les modifications des collaborateurs. De cela découlent trois inconvénients majeurs empêchant la mise en place de cette solution en entreprise :\\
 \begin{itemize}
     \item l'utilisation de l'éditeur devient difficile à gérer pour le serveur à partir d'une quinzaine personnes.
-    \item le fait que le document soit stocké sur les serveurs de Google ne plaît pas aux entreprises pour une question de sécurité (vol de données) mais aussi de sûreté (la sauvegarde du document peut être compromise sur les serveurs de Google subissent une panne).
+    \item le fait que le document soit stocké sur les serveurs de Google ne plaît pas aux entreprises pour une question de sécurité (vol de données) mais aussi de sûreté (la sauvegarde du document peut être compromise si les serveurs de Google subissent une panne).
     \item l'édition d'un document devient impossible si les serveurs de Google sont en difficulté ou si notre connexion internet devient instable.
 \end{itemize}
 \paragraph{}
 Afin de développer une plate-forme collaborative permettant de répondre à ces besoins, le projet OpenPaaS \cite{openpaas} a été créé. Financé par BpiFrance \cite{bpi}, les sociétés Linagora \cite{linagora}, XWiki SAS \cite{xwiki}, Nexedi \cite{nexedi} et le laboratoire d'informatique de l'école polytechnique ont collaboré à ce projet open-source français.
 \paragraph{}
-A cette intention, l'expertise de l'équipe COAST a été requise pour trouver et mettre en place une solution. L'objectif principal qui leur était attribué : montrer qu'il est possible de mettre en place un réseau pair-à-pair et une collaboration sûre (sans pertes de données).\\
+A cette intention, l'expertise de l'équipe COAST a été requise. L'objectif principal qui leur était attribué : montrer qu'il est possible de mettre en place un réseau pair-à-pair et une collaboration sûre (sans pertes de données).
+\paragraph{}
 COAST a donc créé l'API indépendante mute-core \cite{mute-core}, constituée de deux sous-projets :
 
 \paragraph{Mute-structs}
-Mute-structs \cite{mute-structs} est un projet Node.js qui propose une implémentation de l'algorithme CRDT (Conflict-free replicated data type) LogootSplit \cite{logoot}. Il est issu de la thèse de Luc André et sert à la fusion des contributions des collaborateurs sans générer de doublons ou de perte de données. Ces opérations sont stockées dans une structure d'arbre.
+Mute-structs \cite{mute-structs} est un projet Node.js qui propose une implémentation de l'algorithme CRDT (Conflict-free replicated data type) LogootSplit \cite{logoot}. Il est issu de la thèse de Luc André et sert à la fusion des contributions des collaborateurs sans générer de doublons ou de perte de données. Ces opérations sont stockées dans une structure d'arbre. Cette structure, comparée à d'autres lors de sa thèse, se trouve être la plus intéressante en termes de performances.
 
 \paragraph{Netflux}
-Nextflux \cite{netflux} est une API permettant l'établissement d'un réseau pai-à-pair, basée sur les technologies Web Real-Time Communication (WebRTC) et WebSocket. A l'origine, cette API se basait sur la topologie fully-connected \cite{fully} : si un réseau comporte n pairs, il existe n-1 liens pour relier tous les pairs entre eux.
+Nextflux \cite{netflux} est une API permettant l'établissement d'un réseau pai-à-pair, basée sur les technologies Web Real-Time Communication (WebRTC) et WebSocket. A l'origine, cette API se basait sur la topologie fully-connected \cite{fully} : si un réseau comporte n pairs, il existe n-1 liens pour relier tous les pairs entre eux. Mon camarade d'école Laurent Bidet et aussi en stage chez COAST a, lui, développé une topologie basée sur l'algorithme Spray \cite{spray}. Cette algorithme permet de réduire le nombre de liens à log(n).
 
 \paragraph{MUTE}
 L'équipe COAST a décidé de développer leur propre éditeur collaboratif afin qu'il soit utilisé au sein de l'INRIA, et, pourquoi pas, au sein de TELECOM Nancy, école d'ingénieur voisine du laboratoire et où j'étudie actuellement. Multi User Text Editor (MUTE) est donc une interface web basée sur l'API CodeMirror et qui se sert de l'API mute-core. MUTE est donc un éditeur web collaboratif temps-réel pair-à-pair.
@@ -279,14 +282,14 @@ L'ensemble du projet est hébergé sur un répertoire GitHub, un gestionnaire de
 Il m'a été conseillé d'utiliser VisualStudio Code pour développer. Particulièrement adapté au langage JavaScript, VisualStudio permet de voir très facilement les fichiers modifiés par rapport au dernier commit et de faire des merges très simplement.
 
 \paragraph{}
-Le projet utilise le framework Angular.
+Le projet utilise le framework Angular. (expliquer les components)
 
 \paragraph{}
-Pour gérer ses dépendances, le projet utilise npm \cite{npm}, un package manager.
+Pour gérer ses dépendances, le projet utilise npm \cite{npm}, un package manager.\\
 
-npm cz pour voir si le code est formaté correctement.
+(npm cz pour voir si le code est formaté correctement.)\\
 
-digest pour repérer des divergences.\\
+(digest pour repérer des divergences.)\\
 
 \subsection{Méthode de travail}
 Deux outils m'ont quotidiennement aidée à m'organiser et à prendre des notes pour faciliter l'écriture de ce rapport : l'outil de gestion de projet GitHub, ainsi qu'un journal quotidien que j'ai tenu selon le principe du bullet journal \cite{bullet}.
@@ -303,7 +306,7 @@ Je le nomme workboard car il se présente comme un tableau référençant l'ense
 \end{figure}
 
 \newpage
-Tous les lundis matins je programmais ma roadmap. C'était également un excellent moyen pour accéder rapidement à mes issues et cela permettait également à mon maître de stage de pouvoir jeter un oeil à mon avancement. C'est une fonctionnalité de GitHub que je ne connaissais pas avant ce stage et qui se révèle être l'outil rêvé pour des fondus d'organisation.\\
+C'était également un excellent moyen pour accéder rapidement à mes issues et cela permettait également à mon maître de stage de pouvoir jeter un oeil à mon avancement. C'est une fonctionnalité de GitHub que je ne connaissais pas avant ce stage et qui se révèle être l'outil rêvé pour des fondus d'organisation.\\
 
 \paragraph{Journal quotidien}
 Afin de noter un maximum de choses pour écrire ce rapport mais aussi pour noter ma réflexion, ne pas oublier de faire quelque chose ou juste mieux m'organiser, j'ai pris l'initiative de tenir un journal quotidien de mon travail. A cette occasion j'ai repris quelques principes des bullet journals comme par exemple le fait de noter systématiquement les tâches à faire en organisant des checklists. Pour lier le workboard au journal, j'ai noté chaque jour sur quelle(s) issue(s) j'ai travaillé avec un code couleur pour retrouver plus rapidement des notes que j'aurais prises à l'intention de l'une d'elles.\\
@@ -313,8 +316,7 @@ Avant de commencer une issue, j'en informais mon maître de stage qui me donnait
 \paragraph{}
 Ainsi, en toute autonomie, je menais des recherches les plus exhaustives possibles pour trouver des solutions open source ou juste des méthodes que j'aurais pu reproduire dans notre projet. Nous voyions ensuite ensemble le meilleur choix.
 \paragraph{}
-Après le développement de la solution, je montrais le résultat, relevant les limites et recevant des détails à rajouter au développement.\\
-Pour certaines issues, notamment pour les raccourcis clavier et la barre d'outils, je référençais sur l'issue correspondante l'ensemble des fonctionnalités présentes. Voici un exemple :
+Après le développement de la solution, je montrais le résultat, relevant les limites et recevant des détails à rajouter au développement. Pour certaines issues, notamment pour les raccourcis clavier et la barre d'outils, je référençais sur l'issue correspondante l'ensemble des fonctionnalités présentes. Voici un exemple :
 
 \newpage
 \begin{figure}[H]
@@ -347,7 +349,7 @@ L'on constate que le style est appliqué mais que les balises sont encore visibl
 
 \subsubsection{Premières approches}
 \paragraph{Une approche à la main}
-Il s'agissait de la première issue que j'avais à faire. Je n'avais pas encore à l'esprit l'importance de la contribution des gens dans le milieu open source. Car, encore une fois, CodeMirror est un projet assez populaire et le nombre de projets "dérivés" est important. Donc, dans un premier temps, j'ai essayé de résoudre le problème avec "les moyens du bord".\\
+Il s'agissait de la première issue que j'avais à faire. Je n'avais pas encore à l'esprit l'importance de la contribution des gens dans le milieu open source. Car, encore une fois, CodeMirror est un projet assez populaire et le nombre de projets "dérivés" est important. Donc, dans un premier temps, j'ai essayé de résoudre le problème avec "les moyens du bord".
 \paragraph{}
 Dans mon analyse de la situation, j'ai remarqué que l'utilisation de la syntaxe Markdown au sein de l'éditeur modifiait le DOM \cite{dom}. Le DOM est une interface de programmation qui, entre autres, organise le contenu d'une page HTML en une structure d'arbre qu'il est possible de parcourir et modifier. Si on reprend l'exemple de l'image ci-dessus, on obtient le DOM suivant :
 \begin{figure}[H]
@@ -373,9 +375,8 @@ https://github.com/SamyPesse/codemirror-widgets
 N'arrivant toujours pas à utiliser codemirror-widgets à nos fins, mon maître de stage m'a dirigée vers d'autres API, entre autres HyperMD \cite{hypermd}, projet datant de Janvier 2017, et dont la démo \cite{demo} paraissait remplir les objectifs de cette première issue et plus.
 Après avoir installé HyperMD dans notre projet, nous avons constaté qu'en plus de cacher la syntaxe, les liens étaient stylisés, les images étaient prises en compte, ainsi que les formules mathématiques, grâce à MathJax \cite{mathjax}.\\
 
-
-parler du service\\
-faudra introduire un peu MathJax ici, comment ça marcher viteuf (back et front), dire qu'on a repéré un bug.\\
+(parler du service)\\
+(faudra introduire un peu MathJax ici, comment ça marcher viteuf (back et front), dire qu'on a repéré un bug)\\
 
 J'ai pris l'initiative de créer une issue pour créer une cheat-sheet pour MathJax, à l'instar de Markdown, afin d'améliorer l'expérience utilisateur.\\
 
@@ -385,10 +386,10 @@ J'ai pris l'initiative de créer une issue pour créer une cheat-sheet pour Math
 Coming soon...
 
 \subsubsection{Création d'une barre d'outils}
-parler de Material Angular, expliquer qu'un module c'est un Component Angular\\
-parler des guidelines angular\\
-parler de la désynchro\\
-cacher sur téléphone\\
+(parler de Material Angular, expliquer qu'un module c'est un Component Angular)\\
+(parler des guidelines angular)\\
+(parler de la désynchro)\\
+(cacher sur téléphone)\\
 Coming soon...
 
 \newpage
@@ -401,21 +402,21 @@ Lors de l'intégration d'HyperMD au projet, j'ai remarqué que si un collaborate
 \paragraph{}
 Dans un premier temps j'ai essayé de comprendre comment il était possible que le collaborateur B arrive néanmoins à mettre à jour la formule. Il aurait été plus logique qu'au moment de focus ladite formule rien ne se passe de son côté. J'en ai conclu que la syntaxe de la formule mise à jour était donc bien transmise aux collaborateurs.
 \paragraph{}
-J'ai pensé que l'information pouvait être stockée dans le DOM. Mais on constate (cf en Annexe) qu'aucune information n'est changée dans le DOM.
+J'ai pensé que l'information pouvait être stockée dans le DOM. Mais je n'ai constaté aucune changement dans le DOM.
 \paragraph{}
 Pour mieux comprendre comment HyperMD fait appel à MathJax je suis allée voir le code source. Quand une expression du type "\$ ... \$" ou "\$\$ ... \$\$" est détectée, HyperMD créé une marque. Au sens de CodeMirror, une marque est ce qui est utilisé pour "marquer" une partie d'un texte en lui attribuant une classe CSS spécifique. Au moment de créer cette marque, il est possible de spécifier des options. Entre autres, HyperMD décide que l'élément DOM correspondant à cette zone de texte doit être remplacé par un élément span structuré comme suit :
-span
-    script\\
+(faire un schéma span
+    script)\\
 Or, grâce au script, MathJax est en mesure de générer un rendu. Ce rendu est nommé dans la documentation MathJax "jax".
 \paragraph{}
 En consultant la documentation de CodeMirror, j'ai constaté qu'il était possible d'avoir accès à l'ensemble des marques. C'est dans cette liste que j'ai retrouvé la syntaxe de la nouvelle formule changée par A (cf en Annexe). En mettant le focus sur la formule, le jax est retiré et la marqué est cassée : on retourne à un aspect d'édition de type "\$ ... \$". Or, comme la marque a été modifiée par A et transmise à B, le contenu de "\$ ... \$" affiché chez B sera bien ce qui se trouve chez A. Une fois que le focus est enlevé, la marque est recréée, MathJax est appelé, et le jax est donc mis à jour. J'en conclus donc qu'il faut forcer MathJax à reprocéder au rendu des formules.\\
 
 \subsubsection{Un premier fix}
 \paragraph{}
-Dans un premier temps j'ai procédé comme suit : on récupère les marques et on récupère les jax. On parcourt ces deux listes en parallèle. On récupère la formule contenue dans la marque. A l'aide d'une expression régulière on déduit s'il s'agit d'une formule avec un seul ou deux dollars pour pouvoir retirer le nombre de caractères correspondant et ne garder que la formule. On demande à MathJax de s'exécuter avec la nouvelle formule sur la jax correspondante.
+Dans un premier temps j'ai procédé comme suit : on récupère les marques et on récupère les jax. On parcourt ces deux listes en parallèle. On récupère texte contenue dans la marque. A l'aide d'une expression régulière on déduit s'il s'agit d'une formule avec un seul ou deux dollars pour pouvoir retirer le nombre de caractères correspondant et ne garder que la formule. On demande à MathJax de s'exécuter avec la nouvelle formule sur la jax correspondante.
 \paragraph{}
-HyperMD utilisant le même système de marques pour les liens et les images, il ne faut travailler que sur les marques dédiées aux maths. La distinction s'est facilement faite car chacune a un nom de classe différent.\\
-Pour simuler le fait que les rendus soient sensibles à la modification temps-réelle, j'ai utilisé une fonction JavaScript permettant d'exécuter du code selon un intervalle de temps. Je l'ai programmé à 100ms dans un premier temps. Cela ne causait aucun ralentissement dans l'utilisation de l'éditeur.\\
+HyperMD utilisant le même système de marques pour les liens et les images, il ne faut travailler que sur les marques dédiées aux maths. La distinction s'est facilement faite car chacune avait un nom de classe différent.\\
+Pour simuler le fait que les rendus soient sensibles à la modification en temps-réel, j'ai utilisé une fonction JavaScript permettant d'exécuter du code selon un intervalle de temps. Je l'ai programmé à cent millisecondes dans un premier temps. Cela ne causait aucun ralentissement dans l'utilisation de l'éditeur.\\
 
 \subsubsection{Extraire les formules}
 \paragraph{}
@@ -439,7 +440,7 @@ Pour le cas où l'utilisateur soit en train d'ajouter une formule à une ligne e
 \paragraph{}
 Encore pendant que je travaillais sur une autre issue, j'ai remarqué un décalage dans les rendus MathJax. Par exemple : si sur la ligne 1 se trouvent les formules A et B, sur la ligne 2 la formule C et que l'utilisateur focus la formule B, alors sur la ligne 2 on verra s'afficher le rendu de la formule B. Ce décalage n'est pas transmis aux autres collaborateurs.
 \paragraph{}
-Il s'avère que si sur une ligne il y a deux formules, chacune de ces formules va générer une marque. On aura donc deux marques aux contenus identiques. Ainsi, quand la formule B est 'cassée', la marque de la formule A subsiste. Comme on extrait les formules depuis les marques, la formule A donne en réalité deux formules (dont la formule B qui n'existe techniquement plus). Comme on itère sur la liste des jax, on update donc pas la bonne jax avec le bon contenu.
+Il s'avère que si sur une ligne il y a deux formules, chacune de ces formules va générer une marque. On aura donc deux marques aux contenus identiques. Ainsi, quand la formule B est 'cassée', la marque de la formule A subsiste. Comme on extrait les formules depuis les marques, la formule A donne en réalité deux formules (dont la formule B qui n'existe techniquement plus). Comme on itère sur la liste des jax, on n'update donc pas la bonne jax.
 \paragraph{}
 Pour pallier ceci j'ai repensé mon code pour pouvoir isoler la ligne contenant une formule en train d'être éditée pour pouvoir toujours garder synchronisés la liste des marques et la liste des jaxs. Toujours en itérant sur les marques, on compte le nombre de formules qu'elle contient :\\
 \begin{itemize}
@@ -485,7 +486,7 @@ Enfin, mon maître de stage a également suggéré que la cheat-sheet ait son pr
 \paragraph{}
 Pour cette antisèche, je suis partie sur le même concept d'apparence et de structuration.
 \paragraph{}
-Dans un premier temps, mon maître de stage et moi-même désirions que les rendus des formules soient générés par MathJax. MathJax étant utilisé uniquement par HyperMD, je n'avais jamais eu besoin de l'importer au sein de notre projet. Cette tâche seule s'est étalée sur trois jours. Pour ne pas pas perdre trop de temps, en parallèle, je commençais de mettre en place le composant qui allait contenir l'antisèche. Finalement, après que mon maître de stage soit venu m'aider à mettre en place MathJax, nous avons constater qu'une particularité de MathJax était bloquante : en effet, MathJax charge les formules globalement, sur l'ensemble de l'interface. Plus précisément : la liste de 'jax' mentionnée en 3.6 est unique à la page. Ainsi, les rendus se retrouvaient décalé : la première formule dans l'éditeur avait son rendu dans l'antisèche, et toutes les autres formules se trouvaient décalée de un cran.
+Dans un premier temps, mon maître de stage et moi-même désirions que les rendus des formules soient générés par MathJax. MathJax étant utilisé uniquement par HyperMD, je n'avais jamais eu besoin de l'importer au sein de notre projet. Cette tâche seule s'est étalée sur trois jours. Pour ne pas pas perdre trop de temps, en parallèle, je commençais de mettre en place le composant qui allait contenir l'antisèche. Finalement, après que mon maître de stage soit venu m'aider à mettre en place MathJax, nous avons constater qu'une particularité de MathJax était bloquante : en effet, MathJax charge les formules globalement, sur l'ensemble de l'interface. Plus précisément : la liste de 'jax' mentionnée en 3.6 est unique à l'application. Ainsi, les rendus se retrouvaient décalés : la première formule dans l'éditeur avait son rendu dans l'antisèche, et toutes les autres formules se trouvaient décalée d'un cran.
 \paragraph{}
 Nous avons donc conclu qu'il serait plus simple que les rendus dans l'antisèche soient des images provenant d'impressions d'écrans. L'avantage à cela est que le rendu correspondra tout à fait à ce que MathJax produit dans l'éditeur, de plus, cela fait moins de formules à charger lors de l'affichage de l'antisèche.\\
 
@@ -512,16 +513,15 @@ Au cours du stage, il est arrivé que mon aide soit requise pour des tests. En e
 \paragraph{}
 De plus, avant que François Charoy décrète la fin du semestre et donc la fin des réunions hebdomadaires, chaque compte rendu de réunion était pris via MUTE. Nous pouvions ainsi tester la dernière démo, ce qui permettait de mettre en avant des oublis, des bugs ou des précisions sur les cas d'utilisations.\\
 
-Digest ?
+(Digest ?)
 
 \newpage
 \section{Bilan du stage}
 \subsection{Avancement par rapport au cahier des charges prévu}
-Si on se réfère au cahier des charges, la majorité des tâches a été accomplie.
-oulala j'ai tout fait à part EOP et exportation. 
+Si on se réfère au cahier des charges, la majorité des tâches a été accomplie. (tout fait à part EOP et exportation. que dire d'autre ?)
 
 \subsection{Retombées}
-L'ensemble de mon travail a été intégré sur la prod.
+L'ensemble de mon travail a été intégré à l'application.
 
 \subsection{Développement futur}
 \subsubsection{Barre d'outil responsive}
@@ -536,7 +536,7 @@ Le projet HyperMD et MUTE présentaient une issue en commun : la création d'une
     \item interprétation des paragraphes
     \item interprétation des tableaux
 \end{itemize}
-Après être entré en communication avec le propriétaire de ce projet il s'avère qu'HyperMD n'est pas sa priorité numéro une. Il conviendrait donc de traiter ses cas nous-mêmes.
+Après être entré en communication avec le propriétaire de ce projet il s'avère qu'HyperMD n'est pas sa priorité numéro une. Il conviendrait donc de traiter ces cas nous-mêmes.
 
 \paragraph{MathJax}
 Une particularité de cette librairie qui la rend unique face aux librairies utilisées dans MUTE est qu'elle est globale à l'application. Il serait préférable qu'on puisse la configurer pour la rendre globale à un document particulier. Depuis 2015, il est possible de voir sur le répertoire GitHub de ce projet qu'une version 3 est en cours de réflexion. Il semble donc qu'il se déroule une certaine période avant d'obtenir quelque chose de plus stable. Il serait peut-être envisageable de trouver une autre librairie qui remplisse les besoins escomptés.
