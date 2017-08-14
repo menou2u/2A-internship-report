@@ -188,7 +188,7 @@ L'objectif de mon stage était de rendre l'éditeur riche, par exemple en intég
 
 Dans le contexte de ce stage qui est celui de la recherche, il y a moins la pression d'une deadline, comme on le voit en entreprise. Cependant l'équipe COAST se prépare à faire une démonstration de MUTE lors de la quinzième European Conference on Computer-Supported Cooperative Work (ECSCW) \cite{ecscw} et qui aura lieu du 28 août au 1er septembre 2017 à Sheffield (UK). L'enjeu n'était donc pas des moindres et suggérait un travail de qualité.\\
 
-Ce document constitue le rapport de ce stage. Dans un premier temps, nous poserons le contexte en parlant de l'équipe COAST au sein du LORIA et de ces objectifs. S'en suivra une mise en lumière de l'origine du projet ainsi que les objectifs du stage. Nous détaillerons ensuite l'ensemble des développements mis en place, les résultats obtenus et les difficultés rencontrées. Enfin, nous dresserons un bilan de cette expérience technique en laboratoire de recherche et parlerons d'éventuelles améliorations à apporter au projet.\\
+Ce document constitue le rapport de ce stage. Dans un premier temps, nous poserons le contexte en parlant de l'équipe COAST au sein du LORIA et de ces objectifs. S'ensuivront une mise en lumière de l'origine du projet ainsi que les objectifs du stage. Nous détaillerons ensuite l'ensemble des développements mis en place, les résultats obtenus et les difficultés rencontrées. Enfin, nous dresserons un bilan de cette expérience technique en laboratoire de recherche et parlerons d'éventuelles améliorations à apporter au projet.\\
 
 \newpage
 \section{L'équipe COAST, INRIA : présentation}
@@ -224,36 +224,47 @@ Pour pallier ce problème, certains proposeraient tout simplement d'utiliser Goo
 \paragraph{}
 Afin de développer une plate-forme collaborative permettant de répondre à ces besoins, le projet OpenPaaS \cite{openpaas} a été créé. Financé par BpiFrance \cite{bpi}, les sociétés Linagora \cite{linagora}, XWiki SAS \cite{xwiki}, Nexedi \cite{nexedi} et le laboratoire d'informatique de l'école polytechnique ont collaboré à ce projet open-source français.
 \paragraph{}
-A cette intention, l'expertise de l'équipe COAST a été requise. L'objectif principal qui leur était attribué : montrer qu'il est possible de mettre en place un réseau pair-à-pair et une collaboration sûre (sans pertes de données).
+A cette intention, l'expertise de l'équipe COAST a été requise. L'objectif principal qui leur était attribué : montrer qu'il est possible de mettre en place
+\begin{itemize}
+    \item un réseau pair-à-pair capable de mieux passer à l'échelle que Google Doc.
+    \item une collaboration sûre (sans pertes de données).
+\end{itemize}
 \paragraph{}
 COAST a donc créé l'API indépendante mute-core \cite{mute-core}, constituée de deux sous-projets :
 
 \paragraph{Mute-structs}
-Mute-structs \cite{mute-structs} est un projet Node.js qui propose une implémentation de l'algorithme CRDT (Conflict-free replicated data type) LogootSplit \cite{logoot}. Il est issu de la thèse de Luc André et sert à la fusion des contributions des collaborateurs sans générer de doublons ou de perte de données. Ces opérations sont stockées dans une structure d'arbre. Cette structure, comparée à d'autres lors de sa thèse, se trouve être la plus intéressante en termes de performances.
+Mute-structs \cite{mute-structs} est un projet Node.js qui propose une implémentation de l'algorithme CRDT (Conflict-free replicated data type) LogootSplit \cite{logoot}. Il est issu de la thèse de Luc André et sert à la fusion des contributions des collaborateurs sans générer de doublons ou de perte de données.
 
 \paragraph{Netflux}
-Nextflux \cite{netflux} est une API permettant l'établissement d'un réseau pai-à-pair, basée sur les technologies Web Real-Time Communication (WebRTC) et WebSocket. A l'origine, cette API se basait sur la topologie fully-connected \cite{fully} : si un réseau comporte n pairs, il existe n-1 liens pour relier tous les pairs entre eux. Mon camarade d'école Laurent Bidet et aussi en stage chez COAST a, lui, développé une topologie basée sur l'algorithme Spray \cite{spray}. Cette algorithme permet de réduire le nombre de liens à log(n).
+Nextflux \cite{netflux} est une API permettant l'établissement d'un réseau pair-à-pair, basée sur les technologies Web Real-Time Communication (WebRTC) et WebSocket. A l'origine, cette API se basait sur la topologie fully-connected \cite{fully} : si un réseau comporte n pairs, il existe n-1 liens pour relier tous les pairs entre eux. Mon camarade d'école Laurent Bidet et aussi en stage chez COAST a, lui, développé une topologie basée sur l'algorithme Spray \cite{spray}. Cette algorithme permet de réduire le nombre de liens à log(n).
 
 \paragraph{MUTE}
 L'équipe COAST a décidé de développer leur propre éditeur collaboratif afin qu'il soit utilisé au sein de l'INRIA, et, pourquoi pas, au sein de TELECOM Nancy, école d'ingénieur voisine du laboratoire et où j'étudie actuellement. Multi User Text Editor (MUTE) est donc une interface web basée sur l'API CodeMirror et qui se sert de l'API mute-core. MUTE est donc un éditeur web collaboratif temps-réel pair-à-pair.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.52]{gallery/hierarchy.jpg}
+\caption[nom dans le sommaire]{Hiérarchie de mute-core, API utilisée par MUTE}
+\label{fig:gallery0}
+\end{figure}
 
 \subsection{Description et analyse du problème posé : apporter une édition riche}
 L'ensemble de mon travail portait sur le projet MUTE et consistait en du Front-End. L'objectif consistait en une amélioration de l'expérience utilisateur de MUTE.
 
 
 \subsection{Cahier des charges}
-Le cahier des charges du projet Rich Text Editor a été défini comme étant les issues GitHub auxquelles j'ai été assignée. Les détails nécessaires m'ont été fournis à l'oral au moment opportun. Ci-dessous, la liste des issues que je devais réaliser pendant mon stage :\\
+Le cahier des charges du projet Rich Text Editor a été défini comme étant les issues GitHub auxquelles j'étais assignée. Les détails nécessaires m'ont été fournis à l'oral au moment opportun. Ci-dessous, la liste des issues que je devais réaliser pendant mon stage :\\
 
 As a User I want to :
 \begin{description}
-    \item [see a partially styled (inline rendered style) Markdown text in the editor :]les balises doivent réapparaître lorsque l'utilisateur met le focus sur un élément contenant du style.
-    \item [see a rendered version of my document :]cette issue est devenue obsolète du fait de la précédente (voir explications dans la partie Réalisation et validation). Concrètement, si l'issue précédente n'était pas réalisable immédiatement, MUTE aurait dû être divisée en deux parties : à gauche l'utilisateur écrirait le texte souhaité, à droite il aurait accès à un rendu où la syntaxe aurait été interprétée.
-    \item [have an outline view for Markdown]
+    \item [see a partially styled (inline rendered style) Markdown text in the editor :]les balises correspondant à de la syntaxe Markdown doivent être camouflés après interprétation du style, une fois que l'édition du texte stylisé est terminée ou qu'on met le focus ailleurs. De même, les balises doivent réapparaître lorsque l'utilisateur met le focus sur un élément contenant du style.
+    \item [see a rendered version of my document :]cette issue est devenue obsolète du fait de la précédente (voir explications dans la partie Réalisation et validation). Concrètement, si l'issue précédente n'était pas réalisable immédiatement, il aurait fallu compléter cette issue, étape intermédiaire entre ce qui existait au début du stage, et ce qui existe maintenant. L'idée était la suivante : MUTE aurait dû être divisée en deux parties : à gauche l'utilisateur écrirait le texte souhaité, à droite il aurait accès à un rendu où la syntaxe aurait été interprétée.
+    \item [have an outline view for Markdown :] Coming soon...
     \item [add basic styles (bold, italic...) to the document using keyboard shortcuts :]l'utilisateur doit pouvoir ajouter/enlever du style en utilisant des raccourcis claviers intuitifs, par exemple Ctrl+B pour le gras.
     \item [add basic styles (bold, italic...) to the document using toolbar :]au moment d'une sélection de texte, une barre d'outils doit apparaître pour que l'utilisateur puisse ajouter/enlever le style à la souris.
     \item [see my math formula rendered :]l'utilisateur doit pouvoir écrire une formule mathématique et qu'elle ait le même rendu que s'il l'avait écrite à la main.
     \item [include images into my documents :]tout est dans l'intitulé.
-    \item [to add some "End of Page" character :]au bout d'un certain nombre de ligne, la page doit se terminer et une nouvelle doit être créée.
+    \item [to add some "End of Page" character :]au bout d'un certain nombre de lignes, la page doit se terminer et une nouvelle doit être créée.
     \item [consult Markdown cheat-sheet :]l'utilisateur doit pouvoir rapidement accéder à la syntaxe de Markdown
     \item [consult MathJax cheat-sheet :]l'utilisateur doit pouvoir rapidement accéder à la syntaxte de MathJax
     \item [be able to export the document to another document format (PDF, plain text) :]tout est dans l'intitulé.\\
@@ -359,7 +370,7 @@ Dans mon analyse de la situation, j'ai remarqué que l'utilisation de la syntaxe
     \label{fig:gallery4}
 \end{figure}
 \paragraph{}
-De ce fait, je pensais faire une recherche des noeuds du DOM dont les classes contiendraient des éléments en rapport avec le style CSS apporté par Markdown. Une fois ce style récupéré il aurait fallu l'appliquer uniquement au "what is happening here". Pour faire disparaître les balises sans pour autant les perdre, j'aurai essayé d'appliquer l'attribut CSS visibility en le met à "hidden" aux deux spans contenant les balises.
+De ce fait, je pensais faire une recherche des noeuds du DOM dont les classes contiendraient des éléments en rapport avec le style CSS apporté par Markdown. Une fois ce style récupéré il aurait fallu l'appliquer uniquement au "what is happening here". Pour faire disparaître les balises sans pour autant les perdre, j'aurai essayé d'appliquer l'attribut CSS visibility en le mettant à "hidden" aux deux spans contenant les balises.
 \paragraph{}
 Cependant, cette solution paraissait trop lourde car elle nécessitait un parcours constant du document. De plus, si une personne avait été en train d'écrire, l'édition en aurait été gênée.
 
@@ -434,13 +445,13 @@ Il semble que MathJax essaye de faire un rendu de tout le texte contenu dans la 
 \paragraph{}
 Pour pallier ce problème j'ai donc créé une fonction pour récupérer dans une marque les éléments du texte répondant aux expressions "\$ ... \$" ou "\$\$ ... \$\$". Ainsi, on passe à MathJax la formule au lieu du texte contenu dans la marque.
 \paragraph{}
-Pour le cas où l'utilisateur soit en train d'ajouter une formule à une ligne en contenant déjà une (imaginer que le texte est "\$ formule 1 \$ \$"), cet algorithme considère que les deux derniers dollars constituent une formule. Cela entraîne des problèmes de rendus qui sont très perturbants pour l'utilisateur en train rédiger. Pour pallier ce problème j'ai donc empêché le rafraîchissement d'une ligne ne contenant que des nombres impairs de \$.\\
+Pour le cas où l'utilisateur soit en train d'ajouter une formule à une ligne en contenant déjà une (imaginer que le texte est "\$ formule 1 \$ \$"), cet algorithme considère que les deux derniers dollars constituent une formule. Cela entraîne des problèmes de rendus qui sont très perturbants pour l'utilisateur en train rédiger. Pour pallier ce problème j'ai donc empêché le rafraîchissement d'une ligne contenant un nombre impair de \$.\\
 
 \subsubsection{Doublons de marques : décalage des rendus}
 \paragraph{}
 Encore pendant que je travaillais sur une autre issue, j'ai remarqué un décalage dans les rendus MathJax. Par exemple : si sur la ligne 1 se trouvent les formules A et B, sur la ligne 2 la formule C et que l'utilisateur focus la formule B, alors sur la ligne 2 on verra s'afficher le rendu de la formule B. Ce décalage n'est pas transmis aux autres collaborateurs.
 \paragraph{}
-Il s'avère que si sur une ligne il y a deux formules, chacune de ces formules va générer une marque. On aura donc deux marques aux contenus identiques. Ainsi, quand la formule B est 'cassée', la marque de la formule A subsiste. Comme on extrait les formules depuis les marques, la formule A donne en réalité deux formules (dont la formule B qui n'existe techniquement plus). Comme on itère sur la liste des jax, on n'update donc pas la bonne jax.
+Il s'avère que si sur une ligne il y a deux formules, chacune de ces formules va générer une marque. On aura donc deux marques aux contenus identiques. Ainsi, quand la formule B est 'cassée', la marque de la formule A subsiste. Comme on extrait les formules depuis les marques, et comme on itère sur les marques et les jaxs en parallèle, on applique donc à la formule C le rendu de la formule B.
 \paragraph{}
 Pour pallier ceci j'ai repensé mon code pour pouvoir isoler la ligne contenant une formule en train d'être éditée pour pouvoir toujours garder synchronisés la liste des marques et la liste des jaxs. Toujours en itérant sur les marques, on compte le nombre de formules qu'elle contient :\\
 \begin{itemize}
@@ -464,7 +475,7 @@ Avec un intervalle de cent millisecondes, il arrivait des fois que toutes les fo
 \newpage
 \subsection{Création d'antisèches}
 \paragraph{}
-Afin d'améliorer l'expérience des utilisateurs de MUTE, deux issues ont été créées pour ajouter des cheat-sheets à l'éditeur, littéralement des antisèches. Ces antisèches contiendraient des rappels de syntaxe pour Markdown et MathJax. Nous avons décidé avec mon maître de stage que ces éléments seront incrustés à droite du document, au même niveau que les informations le concernant (localisation du stockage et collaborateurs), afin que l'utilisateur puisse les avoir à portée tout en gardant accès à l'éditeur. Il m'a été suggéré de réfléchir à une solution à base d'onglets que je pourrais donc intégrer au niveau du composant nommé très justement "right-side".
+Afin d'améliorer l'expérience des utilisateurs de MUTE, deux issues ont été créées pour ajouter des cheat-sheets à l'éditeur, littéralement des antisèches. Ces antisèches contiendraient des rappels de syntaxe pour Markdown et MathJax. Nous avons décidé avec mon maître de stage que ces éléments seraient incrustés à droite du document, au même niveau que les informations le concernant (localisation du stockage et collaborateurs), afin que l'utilisateur puisse les avoir à portée tout en gardant accès à l'éditeur. Il m'a été suggéré de réfléchir à une solution à base d'onglets que je pourrais donc intégrer au niveau du composant nommé très justement "right-side".
 \paragraph{}
 Via mes recherches pour la barre d'outils, je me suis souvenue qu'Angular Material proposait un module Tabs (onglets) \cite{tabs}. J'ai donc immédiatement travaillé sur cette solution. J'avais alors deux manières d'organiser les informations : soit avoir trois onglets (Details, Markdown, MathJax), soit avoir deux onglets (Details, Cheat-sheets) avec dans Cheat-sheets deux onglets (Markdown et MathJax). J'ai opté pour la deuxième solution, car trois onglets prenaient trop de place, le nom des onglets était tronqué. De plus cela fait plus de sens de stocker toutes les cheat-sheets dans un même onglet.\\
 
@@ -519,9 +530,6 @@ De plus, avant que François Charoy décrète la fin du semestre et donc la fin 
 \section{Bilan du stage}
 \subsection{Avancement par rapport au cahier des charges prévu}
 Si on se réfère au cahier des charges, la majorité des tâches a été accomplie. (tout fait à part EOP et exportation. que dire d'autre ?)
-
-\subsection{Retombées}
-L'ensemble de mon travail a été intégré à l'application.
 
 \subsection{Développement futur}
 \subsubsection{Barre d'outil responsive}
