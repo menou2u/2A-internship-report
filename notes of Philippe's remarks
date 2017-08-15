@@ -1,0 +1,54 @@
+mélange termes anglais et fr 
+french (utilisé en anglais dans le reste du rapport)
+faire référence aux figures par leur numéro
+être plus abstraite : problématique d'interopérabilité; problèmes avec les technos
+pas assez d'introductions, faire plus de définitions. Si qqch nécessite beaucoup de développement, il vaut mieux ne pas en parler
+des fois je sustifie trop de trucs, et des pas fois pas assez, par ex 3.3 : ne pas justifier l'appellation du workboard
+
+table des matières partie 1 : trop de redondances sur les noms des équipes. Inria dans Loria, Coast dans Inria, il faut plus de hiérarchie. Parler surtout du Coast et du Loria, Inria c'est moins important. C'est surtout le contexte qui compte.
+
+Le Loria est à Vandoeuvre
+
+Les ingénieurs de l'équipe développent l'application mute qui met en valeur certains résultats de recherche.
+
+Le mode de travail est différent ainsi que les enjeux. Soit j'en parle pas, soit je dis que les enjeux sont différents de ceux des entreprises (on n'a pas de client, mais une deadline quand même, et on veut que Inria et Telecom utilise le projet)
+
+Remplacer objectifs du Loria (dernier pararaphe) par axes de recherche
+
+outline view : menu du document
+
+cette architecture ne passe pas à l'échelle (pour le premier inconvénient du Google Doc)
+
+implémenté ou développé pour l'algo Spray. Mais au final ce détail n'est pas nécessaire
+
+et, pourquoi pas, au sein de TELECOM Nancy remplacer par 'il serait envisageable de l'utiliser à TELECOM'
+
+enlever 'la thèse de luc andré' mais dire que ça vient du même labo. de toute façon les références sont là pour ça
+
+enlever WebTRC et WebSocket
+
+globalement soit j'explique tout, soit je n'en parle pas
+
+analyse du problème : peut être enlever cette partie en fait.
+
+dire que le cahier des charges était en anglais, dans la mise en contexte MUTE.
+
+il manque des définitions dans le cahier des charges : ex balises, Markdown. Il faut camoufler la technique.
+
+attention à la manière d'écrire, c'est trop narratif, ça peut choquer la personne qui lit
+
+node.js : serveur de développement
+
+git gestionnaire de version, github, pareil + gestion de communication
+
+ne pas parlé du digest dans l'environnement de travail, mais dire qu'on avait un environnement de tests et de quoi tester
+
+expliquer cest quoi roadmap et compagnie
+
+enlever les détails algorithmiques de MathJax, peut-être les mettre en annexes
+
+4.2 : donner un lien de la prod pour voir mon travail. utilisable chaque semaine le vendredi par l'équipe. démo de la conf. l'algo qui fait le merge ne travaille qu'avec du texte brut. donc on avait besoin de quand même transférer le style (donc soit créer une autre structure pour transférer le style, soit trouver un moyen d'avoir le style et le contenu grâce à un seul algo)
+
+le cahier des charges est en rapport avec ma problématique de stage, au final j'aurai jamais eu fini. y'avait une notion de priorité
+
+enlever les tâches que j'ai pas faites dans le cahier des charges
