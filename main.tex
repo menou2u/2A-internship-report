@@ -52,11 +52,11 @@
 \hline
 \vspace{5cm}
 \parbox{439pt}{\centering 
-{\Huge Rapport de stage 2A}
+{\Huge Rapport de stage TELECOM Nancy 2$^{e}$ année}
 } \\
 \vspace{1pt}
 \parbox{439pt}{\centering 
-\textit{{\Huge Edition riche}}
+\textit{{\Huge Editeur collaboratif pair-à-pair MUTE : Edition de texte riche}}
 } \\
 \vspace{2cm}
 \parbox{439pt}{\centering 
@@ -103,11 +103,9 @@ Encadrant universitaire~: \textit{Alexandre Parodi}\pagebreak{}
 \thispagestyle{empty}
 \end{center}
 
-$ $
-
 \textbf{Je soussignée,}
 
-\textbf{Menou Camille}
+Menou Camille
 
 \textbf{\'{E}lève-ingénieure régulièrement inscrite en 2$^{e}$
 année à TELECOM Nancy}
@@ -117,9 +115,8 @@ année à TELECOM Nancy}
 \textbf{Année universitaire~:} 2016 - 2017
 
 \textbf{Auteur(e) du document, m\'{e}moire, rapport ou code informatique
-intitul\'{e}~: Rapport de stage 2A}
+intitul\'{e}~:} Editeur collaboratif pair-à-pair MUTE : Edition de texte riche
 
-$ $
 
 
 Par la présente, je déclare m'être informée sur les
@@ -145,7 +142,7 @@ seulement devant la commission de discipline de l'établissement mais
 également devant les tribunaux de la République Française.
 
 \begin{center}
-\textbf{Fait à Villers-lès-Nancy, le unjour/08/2017}
+\textbf{Fait à Villers-lès-Nancy, le 24/08/2017}
 \end{center}
 \thispagestyle{empty}
 
@@ -191,22 +188,66 @@ Enfin, je tiens à remercier toutes les personnes qui se sont donnés la peine d
 \setcounter{page}{1}
 \addcontentsline{toc}{section}{Introduction}
 \section*{Introduction}
-Dans le cadre de ma deuxième année dans l'école d'ingénieur TELECOM Nancy, j'ai effectué un stage technicien au Laboratoire lorrain de recherche en informatique et ses applications (LORIA) \cite{loria} à Vand\oe{}uvre-lès-Nancy. Durant dix semaines j'ai travaillé au sein de l'équipe COAST \cite{coast} dirigée par François Charoy, du 6 juin au 11 août de l'année 2017. Ce stage m'a été proposé par Philippe Kalitine, ingénieur en recherche en informatique chez COAST.\\
+\paragraph{}
+Dans le cadre de ma deuxième année dans l'école d'ingénieur TELECOM Nancy, j'ai effectué un stage technicien au Laboratoire lorrain de recherche en informatique et ses applications (LORIA) \cite{loria} à Vand\oe{}uvre-lès-Nancy. Durant dix semaines j'ai travaillé au sein de l'équipe COAST \cite{coast} dirigée par François Charoy, du 6 juin au 11 août de l'année 2017. Ce stage m'a été proposé par Philippe Kalitine, ingénieur en recherche en informatique chez COAST.
 
-L'équipe travaille actuellement sur MUTE \cite{mute}, un éditeur web de texte collaboratif pair-à-pair open source. Il s'agit d'une application semblable à Google Doc qui ne nécessite pas l'utilisation d'un serveur pour fonctionner. A terme, MUTE a pour vocation de devenir l'éditeur de texte principal du personnel Inria \cite{inria}.\\
+\paragraph{}
+L'équipe travaille actuellement sur MUTE \cite{mute}, un éditeur web de texte collaboratif pair-à-pair open source. Il s'agit d'une application semblable à Google Doc qui ne nécessite pas l'utilisation d'un serveur pour fonctionner. A terme, MUTE a pour vocation de devenir l'éditeur de texte principal du personnel Inria \cite{inria}.
 
-L'objectif de mon stage était de rendre l'éditeur riche, par exemple en intégrant des fonctionnalités autour de l'ajout de style dans les documents, d'images, de formules mathématiques, ou bien autour de l'exportation dans divers formats (PDF, HTML, etc.).\\
+\paragraph{}
+L'objectif de mon stage était de rendre l'éditeur riche, par exemple en intégrant des fonctionnalités autour de l'ajout de style dans les documents, d'images, de formules mathématiques, ou bien autour de l'exportation dans divers formats (PDF, HTML, etc.).
 
-Dans le contexte de ce stage qui est celui de la recherche, le mode de travail ainsi que les enjeux sont différents du monde de l'entreprise. S'il n'y a pas un client à qui l'on doit livrer l'application, l'équipe COAST est néanmoins soumise à une deadline. En effet, l'équipe se prépare à faire une démonstration de MUTE lors de la quinzième European Conference on Computer-Supported Cooperative Work (ECSCW) \cite{ecscw} et qui aura lieu du 28 août au 1er septembre 2017 à Sheffield (UK). L'enjeu n'était donc pas des moindres et nécessitait un travail de qualité.\\
+\paragraph{}
+Dans le contexte de ce stage qui est celui de la recherche, le mode de travail ainsi que les enjeux sont différents du monde de l'entreprise. S'il n'y a pas un client à qui l'on doit livrer l'application, l'équipe COAST est néanmoins soumise à une deadline. En effet, l'équipe se prépare à faire une démonstration de MUTE lors de la quinzième European Conference on Computer-Supported Cooperative Work (ECSCW) \cite{ecscw} et qui aura lieu du 28 août au 1er septembre 2017 à Sheffield (UK). L'enjeu n'était donc pas des moindres et nécessitait un travail de qualité.
 
+\paragraph{}
 Ce document constitue le rapport de ce stage. Dans un premier temps, nous poserons le contexte en parlant de l'équipe COAST au sein du LORIA et de ses axes de recherche. S'ensuivront une mise en lumière de l'origine du projet ainsi que les objectifs du stage. Nous détaillerons ensuite l'ensemble des travaux réalisés, les résultats obtenus et les difficultés rencontrées. Enfin, nous dresserons un bilan de cette expérience technique en laboratoire de recherche et parlerons d'éventuelles améliorations à apporter au projet.\\
 
 \newpage
 \section{L'équipe COAST : présentation}
 \subsection{LORIA}
-Coming soon...
+\paragraph{}
+Le LORIA est une Unité Mixte de Recherche (UMR) \cite{umr} composée du Centre National de la Recherche Scientifique (CNRS) \cite{cnrs}, de l'Université de Lorraine \cite{univ}, et Inria. Créé en 1997, le LORIA est investi dans la recherche fondamentale et appliquée en sciences informatiques. Le LORIA fait aussi partie de la Fédération Charles Hermite \cite{hermite} et du pôle scientifique Automatique, Mathématiques, Informatique et leurs interactions (AM2I) \cite{am2i} de l'Université de Lorraine.
+\paragraph{}
+D'après son site Internet, en août 2017, ce ne sont pas moins de ving-neuf équipes, soit plus de quatre cents personnes qui travaillent au Loria. Les équipes sont réparties dans cinq départements :
+\begin{itemize}
+    \item Département 1 : Algorithmique, calcul, image et géométrie
+    \item Département 2 : Méthodes formelles
+    \item Département 3 : Réseaux, systèmes et services
+    \item Département 4 : Traitement automatique des langues et des connaissances
+    \item Département 5 : Systèmes complexes, intelligence artificielle et robotique
+\end{itemize}
+On retrouve ces départements dans l'organigramme ci-après, extrait du site du LORIA. 
+
+\paragraph{}
+Le conseil scientifique est composé du directeur, des deux directeurs adjoints et des responsables des cinq départements décrits plus haut. Tous les quinze jours, ils se réunissent afin d'assister le directeur dans les décisions concernant le LORIA.
+\paragraph{}
+Le conseil de laboratoire est composé de représentants de l'ensemble du personnel du LORIA. Tous les deux mois, il permet de débattre sur des questions de  politique scientifique, organisation du laboratoire, budget, recrutement de personnels, formation, règlement intérieur, aménagement du temps de travail, conditions de travail et consultation des personnels...
+
+\includepdf[pages={1},landscape=true]{gallery/organigrammeLORIA.pdf}
+
 \subsection{L'équipe COAST}
-Coming soon...
+\paragraph{}
+Comme on peut le constater sur l'organigramme du LORIA, l'équipe COAST, dirigée par M. François Charoy, se trouve dans le département associé aux Réseaux, systèmes et services. L'équipe travaille effectivement dans ce domaine mais également dans le calcul distribué. Ses thématiques de recherche sont les systèmes distribués et intergiciels \footnote{Aussi appelé "middleware", un intergiciel est un logiciel tiers qui crée un réseau d'échange d'informations entre différentes applications informatiques}.
+\paragraph{}
+Le projet de cette équipe est \emph{"de définir des méthodes et des techniques permettant la construction d'applications collaboratives de confiance, basée sur une connaissance précise des algorithmes de réplication, sur la composition sure de service et sur une qualité de service qui peut être déduite et mesurée. Dans ce nouveau contexte, il est difficile de fournir des garanties prouvées sur les services. [Ils proposent] de baser [leur] travail sur une approche contractuelle et mesurable pour donner aux utilisateurs confiance dans les services qu'ils utilisent.  
+Les axes de recherche de l'équipe COAST sont les suivants :}
+\begin{itemize}
+  \item \emph{La gestion sure et efficace de données collaborative à large échelle en terme de quantité de données et d'utilisateurs de ces données.}
+  \item \emph{La composition de services orientés données pour permettre la construction d'applications à l'échelle du Web et pour donner des garanties sur le fonctionnement de ces applications.}
+  \item \emph{Le support à la construction d'environnements collaboratifs pour lesquels on puisse déterminer un niveau de confiance et de sécurité" \footnote{Sources : \href{https://www.inria.fr/equipes/coast}{https://www.inria.fr/equipes/coast}}.}
+\end{itemize}
+
+\paragraph{}
+L'équipe COAST est composée d'une chercheuse scientifique, de dix membres de facultés (professeurs ou assistants professeurs), de trois ingénieurs de recherche (dont mon maître de stage), de dix étudiants en thèse, de deux post-doctorants et de trois assistantes administratives. Pendant cette période de stage, nous étions également trois stagiaires de la promotion vingt-six de TELECOM Nancy. En Figure \ref{orga}, un organigramme de l'équipe COAST.
+
+\newpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.85, angle=90]{gallery/organigrammeCOAST.png}
+    \caption[nom dans le sommaire]{Organigramme équipe COAST}
+    \label{orga}
+\end{figure}
 
 \newpage
 \section{Problématique du stage : rendre un éditeur de texte riche}
@@ -250,9 +291,13 @@ Si MUTE n'avait au début vocation qu'à ne servir que de plateforme de démonst
 
 \subsection{Description et analyse du problème posé : apporter une édition riche}
 \paragraph{}
-Afin de rendre l'éditeur utilisable au sein d'INRIA, il est nécessaire de le rendre riche. Il s'agissait donc d'ajouter des nouvelles fonctionalités autour de l'édition pour améliorer l'expérience utilisateur.
+Afin de rendre l'éditeur utilisable au sein d'INRIA, il est nécessaire de le rendre riche. Il s'agissait donc d'ajouter des nouvelles fonctionnalités autour de l'édition pour améliorer l'expérience utilisateur.
 \paragraph{}
-Il fallait pouvoir ajouter du style au texte (gras, italique...), des gestions de listes, des liens hypertextes, des images ou des formules mathématiques. Il fallait proposer plusieurs manières d'ajouter ce style : écriture de la syntaxe nécessaire à la main, à l'aide de raccourcis clavier, ou grâce à des éléments visuels cliquables. Ces manières d'ajouter doivent être simples d'utilisation, intuitives et rester dans la norme de ce qui existe en termes d'édition, de traitement de texte, afin de ne pas perturber l'expérience utilisateur.
+Il fallait pouvoir ajouter du style au texte (gras, italique...), des gestions de listes, des liens hypertextes, des images ou des formules mathématiques. Il fallait proposer plusieurs manières d'ajouter ce style : écriture de la syntaxe nécessaire à la main, à l'aide de raccourcis clavier, ou grâce à des éléments visuels cliquables.
+\paragraph{}
+Ces manières d'ajouter doivent être simples d'utilisation, intuitives et rester dans la norme de ce qui existe en termes d'édition, de traitement de texte, afin de ne pas perturber l'expérience utilisateur.
+\paragraph{}
+De plus, étant donné que LogootSplit ne traite que du texte brut, il est nécessaire que les solutions apportées ne nécessitent pas un transfert d'informations aux collaborateurs par un moyen autre que du texte.
 
 \subsection{Cahier des charges}
 Le cahier des charges du projet a été défini comme étant les tâches GitHub (plus communément appelées par le terme anglais "issues") auxquelles j'étais assignée. Les détails nécessaires m'ont été fournis à l'oral au moment opportun. De part le caractère open-source du projet, le cahier des charges a été rédigé en anglais.
@@ -306,23 +351,14 @@ Le projet utilise le framework Angular. Ce framework est centré autour de la no
 \end{itemize}
 
 \paragraph{}
-Pour gérer ses dépendances, le projet utilise npm \cite{npm}, un gestionnaire de dépendances.\\
+Le projet utilise npm \cite{npm} afin de gérer ses dépendances.\\
 
 \subsection{Méthode de travail}
 Deux outils m'ont quotidiennement aidée à m'organiser et à prendre des notes pour faciliter l'écriture de ce rapport : l'outil de gestion de projet GitHub, ainsi qu'un journal quotidien que j'ai tenu selon le principe du bullet journal \cite{bullet}.
 
 \paragraph{GitHub workboard}
-Il s'agit d'un tableau référençant l'ensemble des issues m'étant attribués, de la documentation et ma roadmap. Une roadmap est le terme employé pour parler de l'organisation des issues dans le temps. L'organisation se fait de manière hebdomadaire. Vous trouverez un aperçu de ce tableau en Figure \ref{fig:gallery1}.
-
-\newpage
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.52]{gallery/workboard.jpg}
-\caption[nom dans le sommaire]{Workboard du projet Rich Text Editor}
-\label{fig:gallery1}
-\end{figure}
-
-\newpage
+Il s'agit d'un tableau référençant l'ensemble des issues m'étant attribués, de la documentation et ma roadmap. Une roadmap est le terme employé pour parler de l'organisation des issues dans le temps. L'organisation se fait de manière hebdomadaire. Vous trouverez un aperçu de ce tableau en Annexe A.
+\paragraph{}
 C'était un excellent moyen pour accéder rapidement à mes issues et cela permettait également à mon maître de stage de pouvoir jeter un oeil à mon avancement.\\
 
 \paragraph{Journal quotidien}
@@ -333,16 +369,8 @@ Avant de commencer une issue, j'en informais mon maître de stage qui me donnait
 \paragraph{}
 Ainsi, en toute autonomie, je menais des recherches les plus exhaustives possibles pour trouver des solutions open source ou juste des méthodes que j'aurais pu reproduire dans notre projet. Nous décidions ensuite ensemble du meilleur choix.
 \paragraph{}
-Après le développement de la solution, je présentais le résultat, relevant les limites et recevant des détails à rajouter au développement. Pour certaines issues, notamment pour les raccourcis clavier et la barre d'outils, je référençais sur l'issue correspondante l'ensemble des fonctionnalités présentes. En figure \ref{fig:gallery2}, un exemple.
-
-\newpage
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.75]{gallery/issue.jpg}
-\caption[nom dans le sommaire]{Issue associée à la barre d'outils}
-\label{fig:gallery2}
-\end{figure}
-\newpage
+Après le développement de la solution, je présentais le résultat, relevant les limites et recevant des détails à rajouter au développement. Pour certaines issues, notamment pour les raccourcis clavier et la barre d'outils, je référençais sur l'issue correspondante l'ensemble des fonctionnalités présentes. En Annexe B, un exemple.
+\paragraph{}
 L'avantage de cette pratique est qu'il sera possible pour les personnes qui maintiendront mon code de voir s'il y a eu des régressions ou tout simplement de voir ce qui existe déjà et ce qu'il reste à faire.\\
 
 \paragraph{Communication avec l'équipe}
@@ -353,7 +381,7 @@ L'équipe utilise également Slack \cite{slack} pour communiquer.\\
 Abordons maintenant de manière plus concrète les différentes étapes de réalisation du cahier des charges.\\
 
 \subsection{Cacher la syntaxe Markdown : intégration d'HyperMD}
-Afin d'apporter du style à l'éditeur (gras, italique, etc.), l'équipe a décidé d'utiliser le langage à balise Markdown \cite{markdown}. A mon arrivée, MUTE était déjà configuré pour interpréter ce langage et l'on obtenait ce rendu :
+Afin d'apporter du style à l'éditeur (gras, italique, etc.), l'équipe a décidé d'utiliser le langage à balise Markdown \cite{markdown}. A mon arrivée, MUTE était déjà configuré pour interpréter ce langage et l'on obtenait le rendu de la Figure \ref{fig:gallery3}.
 
 \begin{figure}[H]
     \centering
@@ -368,7 +396,7 @@ On constate que le style est appliqué mais que les balises sont encore visibles
 \paragraph{Une approche à la main}
 Il s'agissait de la première issue que j'avais à faire. Dans un premier temps, j'ai essayé de résoudre le problème avec "les moyens du bord".
 \paragraph{}
-Dans mon analyse de la situation, j'ai remarqué que l'utilisation de la syntaxe Markdown au sein de l'éditeur modifiait le DOM \cite{dom}. Le DOM est une interface de programmation qui, entre autres, organise le contenu d'une page HTML en une structure d'arbre qu'il est possible de parcourir et modifier. Si on reprend l'exemple de l'image ci-dessus, on obtient le DOM suivant :
+Dans mon analyse de la situation, j'ai remarqué que l'utilisation de la syntaxe Markdown au sein de l'éditeur modifiait le DOM \cite{dom}. Le DOM est une interface de programmation qui, entre autres, organise le contenu d'une page HTML en une structure d'arbre qu'il est possible de parcourir et modifier. Si on reprend l'exemple de l'image ci-dessus, on obtient ce DOM, en Figure \ref{fig:gallery4}
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.95]{gallery/modified_dom.jpg}
@@ -385,11 +413,11 @@ Mon maître de stage m'a alors suggéré de rechercher des API développées en 
 
 \subsubsection{HyperMD}
 \paragraph{}
-N'arrivant toujours pas à utiliser codemirror-widgets à nos fins, mon maître de stage m'a dirigée vers d'autres API, entre autres HyperMD \cite{hypermd}, projet datant de Janvier 2017, et dont la démo \cite{demo} paraissait remplir les objectifs de cette première issue et plus.
+Après plusieurs essais avec différentes API, mon maître de stage m'a dirigée vers HyperMD \cite{hypermd}, projet datant de Janvier 2017, et dont la démo \cite{demo} paraissait remplir les objectifs de cette première issue et plus.
 \paragraph{}
 Après avoir installé HyperMD dans notre projet, nous avons constaté qu'en plus de cacher la syntaxe, les liens étaient stylisés, les images étaient prises en compte, ainsi que les formules mathématiques, grâce à MathJax \cite{mathjax}.
 \paragraph{}
-MathJax est une librairie open-source, qui, à partir d'une formule respectant une syntaxe particulière, permet de générer un rendu mathématique. HyperMD utilise cette libraire de la manière suivante : il faut encadrer la formule de "\$" ou de "\$\$". Une fois que l'on a fini d'écrire la formule, celle-ci est interprétée, les dollars disparaissent, et le texte est remplacé par un élément MathJax appelé "jax" qui affiche le rendu stylisé de la formule. Si on clique sur la formule, le rendu disparaît, on repasse à une édition de la formule avec les dollars. Lors des premiers tests d'utilisation d'HyperMD, un dysfonctionnement de MathJax m'est apparu : si un collaborateur A modifie une formule, le collaborateur B ne voit pas de modification de son côté. Cependant s'il clique sur la formule, la formule qui s'affiche en mode édition (avec les dollars) se trouve être la formule écrite par A. Quand il quitte le mode d'édition, MathJax refait le rendu, et B a le même rendu que chez A. Comme il est important que dans un contexte collaboratif chaque utilisateur ait la même version du document, j'ai pris l'initiative de créer une issue GitHub décrivant le problème, en y ajoutant le label 'bug'.
+MathJax est une librairie open-source, qui, à partir d'une formule respectant une syntaxe particulière, permet de générer un rendu mathématique. HyperMD utilise cette librairie de la manière suivante : il faut encadrer la formule de "\$" ou de "\$\$". Une fois que l'on a fini d'écrire la formule, celle-ci est interprétée. Les dollars disparaissent, et le texte est remplacé par un élément MathJax appelé "jax" qui affiche le rendu stylisé de la formule. Si on clique sur la formule, le jax disparaît, on repasse à une édition de la formule avec les dollars. Lors des premiers tests d'utilisation d'HyperMD, un dysfonctionnement de MathJax m'est apparu : si un collaborateur A modifie une formule, le collaborateur B ne voit pas de modifications de son côté. Cependant s'il clique sur la formule, la formule qui s'affiche en mode édition (avec les dollars) se trouve être la formule écrite par A. Quand il quitte le mode d'édition, MathJax refait le rendu, et B a le même rendu que chez A. Comme il est primordial que dans un contexte collaboratif chaque utilisateur ait la même version du document, j'ai pris l'initiative de créer une issue GitHub décrivant le problème, en y ajoutant le label 'bug'.
 \paragraph{}
 J'ai aussi pris l'initiative de créer une issue pour créer une cheat-sheet pour MathJax, à l'instar de Markdown, afin d'améliorer l'expérience utilisateur.\\
 
@@ -408,7 +436,7 @@ J'ai jugé qu'il était plus adéquat qu'un raccourci modifie le texte sélectio
 J'ai ensuite créé deux fonctions. La première gère le gras, l'italique et le rayage, la deuxième, les liens.
 
 \paragraph{Gras, italique, rayé}
-Pour ces raccourcis j'ai donc associé une liste d'expressions régulières. On utilise une liste car il existe plusieurs syntaxes pour le même style. Par exemple, on peut écrire \_\_exemple\_\_ ou **exemple** pour écrire en gras.
+Pour ces raccourcis j'ai donc associé une liste d'expressions régulières. On utilise une liste car il existe plusieurs syntaxes pour le même style. Par exemple, on peut écrire \_\_exemple\_\_ ou **exemple** pour appliquer du gras.
 \paragraph{}
 On parcourt la liste d'expressions régulières pour voir si le texte sélectionné contient déjà le style qu'on essaye de lui appliquer.
 \begin{itemize}
@@ -438,14 +466,14 @@ Pour chacun de ces deux cas, une limite est apparue.
 \paragraph{}
 Une nouvelle fonctionnalité de MUTE est l'ajout d'une barre d'outils. Elle sert à ajouter du style (gras, italique, rayé) mais aussi à créer les liens, les citations, les listes et à sélectionner la taille du texte en vue de créer un titre grâce à des boutons ou des menus déroulants. Il a été souhaité qu'elle apparaisse juste au dessus d'une sélection quand une sélection de texte est faite, et disparaisse quand la sélection disparaît. Pour plus d'esthétique, j'ai fait en sorte que le milieu de la barre d'outils corresponde au milieu de la sélection. Cette barre d'outil a été désactivée pour les supports mobile car elle n'est pas bien adaptée à ce genre de support. Il est prévu qu'une barre d'outils similaire soit développée pour apparaître au bas de l'écran, de manière fixe, sur support mobile.
 \paragraph{Le composant barre d'outils}
-N'ayant trouvé aucune API open-source correspondant aux besoins, il a fallu créer un composant Angular pour créer cette barre d'outils. Pour ce faire, j'ai pris connaissance de l'existance de Material Angular REFERENCE. Il s'agit de composants Angular représentant des éléments d'interface comme des boutons, des menus déroulants, etc. La barre d'outils est composée de cinq "toggle buttons" et de deux menus déroulants. Le "toggle button" est un bouton à deux états : actif (quand on a cliqué dessus), inactif (après un deuxième clic).
+N'ayant trouvé aucune API open-source correspondant aux besoins, il a fallu créer un composant Angular pour intégrer cette barre d'outils. Pour ce faire, j'ai pris connaissance de l'existance de Material Angular \cite{tabs}. Il s'agit de composants Angular représentant des éléments d'interface comme des boutons, des menus déroulants, etc. La barre d'outils est composée de cinq "toggle buttons" et de deux menus déroulants. Le "toggle button" est un bouton à deux états : actif (quand on a cliqué dessus), inactif (après un deuxième clic).
 \paragraph{}
-Pour qu'un élément d'interface ne soit pas dérangeant, soit intuitif et donne envie d'être utilisé, il m'a été conseillé de lire les directives Angular sur les éléments d'interface REFERENCE. Elles énoncent des principes à respecter et dénoncent les faux pas à ne pas commettre, que ce soit pour la charte des couleurs, la disposition d'un élément ou la manière dont ce dernier doit se déplacer dans l'interface. Ainsi, la barre d'outil est dans les tons orangés, couleur secondaire de la charte des couleurs de MUTE et qui est censé indiquer à l'utilisateur que ces composants sont à l'origine d'actions. De même, l'apparition et la disparition de la barre d'outils ont été configurées.
+Pour qu'un élément d'interface ne soit pas dérangeant, soit intuitif et donne envie d'être utilisé, il m'a été conseillé de lire les directives Angular sur les éléments d'interface REFERENCE. Elles énoncent des principes à respecter et dénoncent les faux pas à ne pas commettre, que ce soit pour la charte des couleurs, la disposition d'un élément ou la manière dont ce dernier doit se déplacer dans l'interface. Ainsi, la barre d'outil est dans les tons orangés, couleur secondaire de la charte des couleurs de MUTE et qui est censée indiquer à l'utilisateur que ces éléments d'interface sont à l'origine d'actions. De même, l'apparition et la disparition de la barre d'outils ont été configurées.
 \paragraph{}
 En Figure \ref{fig:gallery5}, un aperçu de cette barre d'outils. % \autoref{fig:gallery4} ou \ref{fig:gallery4} >> FIGURE N°figure ou N°figure
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.85]{gallery/toolbar.jpg}
+    \includegraphics[scale=0.8]{gallery/toolbar.jpg}
     \caption[nom dans le sommaire]{Barre d'outils}
     \label{fig:gallery5}
 \end{figure}
@@ -453,19 +481,19 @@ En Figure \ref{fig:gallery5}, un aperçu de cette barre d'outils. % \autoref{fig
 \paragraph{Limites}
 Une première limite réside en la manière dont sont développés les "toggle buttons" de Material Angular. Il existe un scénario où l'activation de ces boutons se désynchronise d'avec la situation actuelle. Mettons que l'on décide de sélectionner un mot et de le mettre en gras grâce au raccourci clavier. J'ai fait en sorte d'analyser et de récupérer quels styles sont présents dans une sélection, afin qu'à l'apparition de la barre d'outils, les "toggles buttons" soient activés ou non pour le(s) style(s) qui correspond(ent). Une fois le gras appliqué avec le raccourci clavier, le bouton correspondant au gras est dans l'état activé. Si cependant on souhaite retirer le gras grâce au bouton, le gras est bel et bien retiré mais le bouton reste néanmoins dans l'état activé.
 \paragraph{}
-Une deuxième limite réside en la manière dont CodeMirror gère les copier/coller. Pour CodeMirror, une ligne est représenté par une balise "pre" caractésiré par une classe "CodeMirrorline". A chaque création de ligne par la touche "Entrée" une nouvelle ligne est créée et dans l'interface et pour CodeMirror. Mais, si la ligne est créée car la ligne précédente est remplie, CodeMirror ne considère pas ça comme une nouvelle ligne. Ainsi, si on décide de coller un texte de plusieurs ligne dans l'éditeur, il nous apparaît comme un paragraphe de plusieurs lignes. Mais, dans le DOM, on trouve que le texte entier est stocké dans une seule "pre". Cela implique que, peu importe où la sélection sera faite dans le paragraphe, la barre d'outils apparaîtra au dessus de la première ligne du paragraphe.
+Une deuxième limite réside en la manière dont CodeMirror gère les copier/coller. Pour CodeMirror, une ligne est représentée par une balise "pre" dans le DOM, caractésirée par une classe "CodeMirrorline". A chaque création de ligne par la touche "Entrée" une nouvelle ligne est créée et dans l'interface et dans le DOM. Mais, si la ligne est créée car la ligne précédente est remplie, CodeMirror ne considère pas ça comme une nouvelle ligne. Ainsi, si on décide de coller un texte de plusieurs lignes dans l'éditeur, il nous apparaît comme un paragraphe de plusieurs lignes. Mais, dans le DOM, on trouve que le texte entier est stocké dans une seule balise "pre". Cela implique que, peu importe où la sélection sera faite dans le paragraphe, la barre d'outils apparaîtra uniquement au dessus de la première ligne du paragraphe.
 
 \newpage
 \subsection{Adaptation des appels à MathJax}
-MathJax est une librairie offrant une grande diversité de symboles mathématiques qui correspond parfaitement au besoin décrit dans le cahier des charges. Cependant, j'ai relevé un "bug" dans le fonctionnement de cette librairie. Résoudre ce bug ne faisait pas partie de mes issues, mais j'ai pris l'initiative de d'essayer de le résoudre. Cependant la multitude de scénarios possible dans un contexte temps-réel collaboratif fait que j'ai dû me pencher sur le problème qui va suivre à plusieurs reprises. Il est d'ailleurs certains que des cas limites ne soient pas encore traités.
+MathJax est une librairie offrant une grande diversité de symboles mathématiques qui correspond parfaitement au besoin décrit dans le cahier des charges. Cependant, j'ai relevé un "bug" dans le fonctionnement de cette librairie. Résoudre ce bug ne faisait pas partie de mes issues, mais j'ai pris l'initiative d'essayer de le résoudre. Cependant, la multitude de scénarios possible dans un contexte temps-réel collaboratif fait que j'ai dû me pencher sur le problème qui va suivre à plusieurs reprises car je n'ai pas pu penser à toutes les configurations d'utilisation de ces formules au sein d'un document. Il est d'ailleurs certains que des cas limites ne soient pas encore traités.
 
 \subsubsection{Analyse de la situation}
 \paragraph{}
-Lors de l'intégration d'HyperMD au projet, j'ai remarqué que si un collaborateur A décidait de modifier une formule, un collaborateur B ne verrait le changement que s'il mettait le focus sur cette formule. Même si cela ne reste qu'un bug d'affichage ne causant pas de divergences, j'ai proposé à mon maître de stage d'essayer de le corriger avant de m'occuper des cheat-sheets.
+Lors de l'intégration d'HyperMD au projet, j'ai remarqué que si un collaborateur A décidait de modifier une formule, un collaborateur B ne verrait le changement que s'il mettait le focus sur cette formule. Même si cela ne reste qu'un bug d'affichage ne causant pas de divergences \footnote{On parle de divergence quand, pour un même document, les collaborateurs de ce document n'en ont pas la même version à un instant t.}, j'ai proposé à mon maître de stage d'essayer de le corriger avant de m'occuper des cheat-sheets.
 \paragraph{}
-Dans un premier temps j'ai essayé de comprendre comment il était possible que l'éditeur du collaborateur B arrive néanmoins à mettre à jour la formule correctement. Il aurait été plus logique qu'au moment de focus ladite formule rien ne se passe de son côté. J'en ai conclu que la syntaxe de la formule mise à jour était donc bien transmise aux collaborateurs.
+Dans un premier temps, j'ai essayé de comprendre comment il était possible que l'éditeur du collaborateur B arrive néanmoins à mettre à jour la formule correctement. Il aurait été plus logique qu'au moment de focus ladite formule rien ne se passe de son côté. J'en ai conclu que la syntaxe de la formule mise à jour était donc bien transmise aux collaborateurs.
 \paragraph{}
-J'ai pensé que l'information pouvait être stockée dans le DOM. Mais je n'ai constaté aucune changement dans le DOM.
+J'ai pensé que l'information pouvait être stockée dans le DOM. Mais je n'ai constaté aucun changement dans le DOM.
 \paragraph{}
 Pour mieux comprendre comment HyperMD fait appel à MathJax j'ai étudié le code source. Quand une expression du type "\$ ... \$" ou "\$\$ ... \$\$" est détectée, HyperMD créé une marque. Au sens de CodeMirror, une marque est ce qui est utilisé pour "marquer" une partie d'un texte en lui attribuant une classe CSS spécifique. Au moment de créer cette marque, il est possible de spécifier des options. Entre autres, HyperMD décide que l'élément DOM correspondant à cette zone de texte doit être remplacé par un élément span contenant un élément script.
 Or, grâce à l'élément script, MathJax est en mesure de générer un rendu. Ce rendu est nommé dans la documentation MathJax "jax".
@@ -499,12 +527,12 @@ Pour le cas où l'utilisateur soit en train d'ajouter une formule à une ligne e
 
 \subsubsection{Doublons de marques : décalage des rendus}
 \paragraph{}
-Encore pendant que je travaillais sur une autre issue, j'ai remarqué un décalage dans les rendus MathJax. Par exemple : si sur la ligne 1 se trouvent les formules A et B, sur la ligne 2 la formule C et que l'utilisateur focus la formule B, alors sur la ligne 2 on verra s'afficher le rendu de la formule B. Ce décalage n'est pas transmis aux autres collaborateurs.
-\begin{figure}[ht]
+Encore pendant que je travaillais sur une autre issue, j'ai remarqué un décalage dans les rendus MathJax. Par exemple : si sur la ligne 1 se trouvent les formules A et B, sur la ligne 2 la formule C et que l'utilisateur focus la formule B, alors sur la ligne 2 on verra s'afficher le rendu de la formule B. Ce décalage n'est pas transmis aux autres collaborateurs. L'illustration de cette situation est dépeinte dans les Figures \ref{fig:gallery7} et \ref{fig:gallery8}
+\begin{figure}[H]
   \begin{minipage}[c]{.46\linewidth}
     \centering
     \includegraphics[scale=0.75]{gallery/doublon1.png}
-    \caption {\label{fig:gallery7} Situation initiale}
+    \caption {\label{fig:gallery7}Situation initiale}
   \end{minipage}
   \hfill
   \begin{minipage}[c]{.46\linewidth}
@@ -529,7 +557,7 @@ Pour pallier ceci j'ai repensé mon code pour pouvoir isoler la ligne contenant 
 
 \subsubsection{Limites}
 \paragraph{}
-Cette problématique a elle seule aurait dû constituer une issue plus importante que simplement une issue avec le label 'bug'. Cependant je devais aussi avancer sur d'autres fonctionnalités donc mon travail n'est pas aussi complet que ce que je l'aurai souhaité. Par exemple, la solution mise en place actuellement bloque le rendu des jaxs des lignes contenant un nombre impair de '\$'. Or il est possible que ce cas subvienne. Néanmoins, la mise à jour des formules est toujours possible si on focus la formule.
+Cette problématique à elle seule aurait dû constituer une issue plus importante que simplement une issue avec le label 'bug'. Cependant je devais aussi avancer sur d'autres fonctionnalités donc mon travail n'est pas aussi complet que ce que je l'aurai souhaité. Par exemple, la solution mise en place actuellement bloque le rendu des jaxs des lignes contenant un nombre impair de '\$'. Or il est possible que ce cas subvienne. Néanmoins, la mise à jour des formules est toujours possible si on focus la formule.
 \paragraph{}
 L'utilisation de MathJax a montré quelques difficultés lors d'un test réalisé avec neuf navigateurs. Des fois les formules disparaissaient complètement. Il est difficile de reproduire les scénarios où MathJax a dysfonctionné.
 \paragraph{}
@@ -540,7 +568,7 @@ Avec un intervalle de cent millisecondes, il arrivait des fois que toutes les fo
 \paragraph{}
 Afin d'améliorer l'expérience des utilisateurs de MUTE, deux issues ont été créées pour ajouter des cheat-sheets à l'éditeur, littéralement des antisèches. Ces antisèches contiendraient des rappels de syntaxe pour Markdown et MathJax. Nous avons décidé avec mon maître de stage que ces éléments seraient incrustés à droite du document, au même niveau que les informations le concernant (localisation du stockage et collaborateurs), afin que l'utilisateur puisse les avoir à portée tout en gardant accès à l'éditeur. Il m'a été suggéré de réfléchir à une solution à base d'onglets à intégrer au niveau du composant nommé très justement "right-side".
 \paragraph{}
-Via mes recherches pour la barre d'outils, je me suis souvenue qu'Angular Material proposait un module Tabs (onglets) \cite{tabs}. J'ai donc immédiatement travaillé sur cette solution. J'avais alors deux manières d'organiser les informations : soit avoir trois onglets (Details, Markdown, MathJax), soit avoir deux onglets (Details, Cheat-sheets) avec dans Cheat-sheets deux onglets (Markdown et MathJax). J'ai opté pour la deuxième solution, car trois onglets prenaient trop de place, le nom des onglets était tronqué. De plus cela fait plus de sens de stocker toutes les cheat-sheets dans un même onglet.\\
+Via mes recherches pour la barre d'outils, je me suis souvenue qu'Angular Material proposait un module Tabs (onglets). J'ai donc immédiatement travaillé sur cette solution. J'avais alors deux manières d'organiser les informations : soit avoir trois onglets (Details, Markdown, MathJax), soit avoir deux onglets (Details, Cheat-sheets) avec dans Cheat-sheets deux onglets (Markdown et MathJax). J'ai opté pour la deuxième solution, car trois onglets prenaient trop de place, le nom des onglets était tronqué. De plus cela fait plus de sens de stocker toutes les cheat-sheets dans un même onglet.\\
 
 \subsubsection{Markdown Cheat-sheet}
 \paragraph{}
@@ -570,7 +598,7 @@ HyperMD prévoit que tout texte collé dans l'éditeur à partir du presse-papie
 \paragraph{}
 Un autre inconvénient vient de l'utilisation des Tabs. Dans l'onglet Details se trouve l'affichage des contributeurs du projet. Il se trouve que le contenu de cet onglet refusait de prendre tout l'espace. Ainsi, le contenu était réduit à un très petit espace, qui, par conséquent, générait une barre de défilement, ce qui n'était pas très esthétique. Mon maître de stage a pris en charge la résolution de ce problème. Cela a eu un effet sur les antisèches, qui ne sont plus contenues dans un card gris, mais sont juste disposées sur le fond de l'application. Le résultat reste très sensiblement le même.
 \paragraph{}
-Le dernier inconvénient vient de la manière dont sont implémentées les Tabs d'Angular Materiel. La première fois que l'on décide de consulter les cheat-sheets, les deux sous-onglets se découvrent et l'on voit par défaut la cheat-sheet Markdown. Or, l'onglet Markdown n'est pas marqué comme étant sélectionné.
+Le dernier inconvénient vient de la manière dont sont implémentées les Tabs d'Angular Materiel. La première fois que l'on décide de consulter les cheat-sheets, les deux sous-onglets se découvrent et l'on voit par défaut la cheat-sheet Markdown. Or, l'onglet Markdown n'est pas marqué comme étant sélectionné. Le résultat de ce travail est visible Figure \ref{fig:gallery9}.
 
 \begin{figure}[H]
     \centering
@@ -595,9 +623,9 @@ Si on se réfère au cahier des charges, la majorité des tâches a été accomp
 
 \subsection{Retombées}
 \paragraph{}
-MUTE et donc mon travail sont disponibles sur le serveur de production disponible à ce lien : \href{https://www.coedit.re}{https://www.coedit.re}. L'éditeur sera utilisé chaque semaine lors des réunions hebdomadaires de l'équipe. De plus, l'éditeur sera présenté à l'ECSCW à Sheffield.
+MUTE et donc mon travail sont disponibles sur le serveur de production \footnote{\href{https://www.coedit.re}{https://www.coedit.re}}. L'éditeur sera utilisé chaque semaine lors des réunions hebdomadaires de l'équipe. De plus, l'éditeur sera présenté à l'ECSCW à Sheffield.
 \paragraph{}
-L'algorithme qui effectue la fusion des collaborations ne travaille qu'avec du texte brut. Ainsi, mon travail a permis de mettre en avant la possibilité de transférer du style et même des formules mathématiques grâce à ce seul algorithme en travaillant avec des API de parsing de texte. Si cela n'avait pas marché, il aurait fallu développer une autre structure pour transférer le style, ce qui n'est pas le cas.
+L'algorithme qui effectue la fusion des collaborations ne travaille qu'avec du texte brut. Ainsi, mon travail a permis de mettre en avant la possibilité de transférer du style et même des formules mathématiques grâce à ce seul algorithme en travaillant avec des API de parsing de texte. Si cela n'avait pas marché, il aurait fallu développer une autre structure pour transférer le style.
 
 \subsection{Développement futur}
 \subsubsection{Barre d'outil responsive}
@@ -644,9 +672,9 @@ Il en va sans dire que s'il était possible d'associer ces deux dispositions, on
 \paragraph{}
 L'objectif de ce stage a été d'apporter des fonctionnalités autour de l'ajout de style au sein de MUTE. Grâce à des solutions open-source ou à des directives reproductibles au sein du projet, nous avons vu comment l'éditeur a évolué au cours de ces dix semaines. Nous avons également vu les limites de ces solutions.
 \paragraph{}
-Après discussion avec mon maître de stage, celui-ci m'a fait prendre conscience que les entreprises développent elles-mêmes les outils qui leur permettent de remplir leurs besoins. Donc, au contraire des entreprises, on réalise que les équipes de recherches, même si elles sont en première ligne dans les avancées technologiques et théoriques, sont aussi les premières à pâtir des limites de ces dernières. En l'occurrence ici, on constate que le développement des solutions que j'ai apportées sont soumises au développement des API, donc au travail de beaucoup de personnes. Certaines d'entre elles développent ces API dans un but de loisir et non professionnel. Une fois de plus, mon maître de stage m'a indiqué que le principe d'une équipe de recherche est de montrer qu'il est possible de mettre en place des solutions novatrices. En l'occurrence nous avons montré qu'il est possible d'ajouter la gestion de style, de formules mathématiques et de listes tout en gardant l'algorithme de fusion initial LogootSplit.
+Après discussion avec mon maître de stage, celui-ci m'a fait prendre conscience que les entreprises développent elles-mêmes les outils qui leur permettent de remplir leurs besoins. Donc, au contraire des entreprises, on réalise que les équipes de recherches, même si elles sont en première ligne dans les avancées technologiques et théoriques, sont aussi les premières à pâtir des limites de ces dernières. En l'occurrence ici, on constate que le développement des solutions que j'ai apportées sont soumises au développement des API, donc au travail de beaucoup de personnes. Certaines d'entre elles développent ces API dans un but de loisir et non professionnel. De plus, mon maître de stage m'a indiqué que le principe d'une équipe de recherche est de montrer qu'il est possible de mettre en place des solutions novatrices. En l'occurrence nous avons montré qu'il est possible d'ajouter la gestion de style, de formules mathématiques et de listes tout en gardant l'algorithme de fusion initial LogootSplit.
 \paragraph{}
-Le fait de travailler en équipe de recherche m'a fait réaliser deux choses. La première est qu'il est difficile d'atteindre le résultat parfait dans la conjoncture actuelle. J'attends mon expérience en entreprise en troisième année pour confirmer ou infirmer cette impression. La deuxième chose est qu'évoluer dans ce contexte, ou en tout cas dans l'équipe COAST, permet de travailler en toute autonomie et chaque idée ou piste de recherche de solution est valorisée.
+Le fait de travailler en équipe de recherche m'a fait réaliser deux choses. La première est qu'il est difficile d'atteindre le résultat parfait dans le contexte de la recherche et des projets open-source. J'attends mon expérience en entreprise en troisième année pour confirmer ou infirmer cette impression. La deuxième chose est qu'évoluer dans ce contexte, ou en tout cas dans l'équipe COAST, permet de travailler en toute autonomie. Chaque idée ou piste de recherche de solution est valorisée, ce que je trouve très motivant.
 
 \newpage
 \printbibliography[heading=bibintoc,title={Webographie}]
@@ -660,6 +688,22 @@ Le fait de travailler en équipe de recherche m'a fait réaliser deux choses. La
 \newpage
 \addcontentsline{toc}{section}{Annexes}
 \section*{Annexes}
+\subsection*{Annexe A}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.52]{gallery/workboard.jpg}
+\caption[nom dans le sommaire]{Workboard du projet Rich Text Editor}
+\label{fig:gallery1}
+\end{figure}
+
+\newpage
+\subsection*{Annexe B}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{gallery/issue.jpg}
+\caption[nom dans le sommaire]{Issue associée à la barre d'outils}
+\label{fig:gallery2}
+\end{figure}
 
 \newpage
 \section*{Mots-clefs :}
